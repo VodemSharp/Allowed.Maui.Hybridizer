@@ -1,0 +1,148 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "VodemSharp",
+  "defaultName": "MauiApp1",
+  "classifications": [ "MAUI", "Android", "iOS", "macOS", "Mac Catalyst", "Windows", "Tizen", "Mobile", "Hybrid" ],
+  "identity": "Allowed.Maui.Hybridizer",
+  "name": ".NET MAUI Hybridizer App",
+  "description": "A project for creating a .NET MAUI Hybridizer application for iOS, Android, Mac Catalyst, WinUI and Tizen",
+  "shortName": "maui-hybridizer",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Allowed.Maui.Hybridizer.Template",
+  "primaryOutputs": [
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "path": "MainPage.xaml.cs"
+    },
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "path": "MainPage.xaml"
+    },
+    {
+      "path": "Allowed.Maui.Hybridizer.Template.csproj"
+    }
+  ],
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        ".template.config/**"
+      ],
+      "modifiers": [
+        {
+          "exclude": [
+            "bin/**",
+            "obj/**",
+            "ClientApp/node_modules/**",
+            "Raw/wwwroot/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "applicationId": {
+      "type": "parameter",
+      "description": "Overrides the $(ApplicationId) in the project",
+      "datatype": "string"
+    },
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net9.0",
+          "description": "Target net9.0"
+        }
+      ],
+      "replaces": "net9.0",
+      "defaultValue": "net9.0"
+    },
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
+    "PhoneProductId": {
+      "type": "generated",
+      "generator": "guid",
+      "replaces": "$guid9$"
+    },
+    "nameToLower":{
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source" : "name",
+        "toLower": true
+      }
+    },
+    "nameToAppId": {
+      "type": "generated",
+      "generator": "regex",
+      "dataType": "string",
+      "parameters": {
+        "source": "nameToLower",
+        "steps": [
+          {
+            "regex": "[^a-z0-9_\\.]",
+            "replacement": ""
+          }
+        ]
+      }
+    },
+    "XmlEncodedAppNameParam": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "encode",
+      "replaces": "XmlEncodedAppName"
+    },
+    "defaultAppId":{
+      "type": "generated",
+      "generator": "join",
+      "parameters": {
+        "symbols": [
+          {
+            "type": "const",
+            "value": "com.companyname."
+          },
+          {
+            "type": "ref",
+            "value": "nameToAppId"
+          }
+        ]
+      }
+    },
+    "finalAppId":{
+      "type":"generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "applicationId",
+        "fallbackVariableName": "defaultAppId"
+      },
+      "replaces": "com.companyname.allowed.maui.hybridizer.template"
+    }
+  },
+  "postActions": [
+    {
+        "id": "openInEditor",
+        "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\" && HostIdentifier != \"vs\")",
+        "description": "Opens MainPage.xaml in the editor.",
+        "manualInstructions": [],
+        "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+        "args": {
+            "files": "0;1"
+        },
+        "continueOnError": true
+    }
+],
+  "forms": {
+    "encode": {
+      "identifier": "xmlEncode"
+    }
+  }
+}

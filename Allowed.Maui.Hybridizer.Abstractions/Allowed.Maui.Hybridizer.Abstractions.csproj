@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        
+        <Company>Allowed Inc.</Company>
+        <Authors>VodemSharp</Authors>
+        <Product>AllowedSharp</Product>
+        <Description>Abstractions used to create plugins.</Description>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/VodemSharp/Allowed.Maui.Hybridizer</RepositoryUrl>
+        <PackageVersion>1.0.0-beta</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="Images\icon.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+    
+</Project>
