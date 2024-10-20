@@ -21,6 +21,7 @@ public static class MauiProgram
 
         builder.Services.RegisterAlertPlugin();
         builder.Services.RegisterBatteryPlugin();
+        builder.Services.RegisterStoragePlugin();
 
         builder.Services.RegisterClientLifetimePlugin(scope =>
         {

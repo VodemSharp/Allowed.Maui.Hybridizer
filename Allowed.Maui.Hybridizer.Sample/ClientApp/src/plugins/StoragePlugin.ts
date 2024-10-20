@@ -7,7 +7,7 @@ export class StoragePlugin {
         if (platformService.getPlatform() == PlatformConstants.Web)
             return {value: localStorage.getItem(key)};
         else {
-            await bridgeService.invoke('Storage', 'Get', {key: key});
+            return <GetResponse>await bridgeService.invoke('Storage', 'Get', {key: key});
         }
     }
 

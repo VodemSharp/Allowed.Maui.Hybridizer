@@ -30,7 +30,6 @@ export class BridgeService {
         }
 
         window.addEventListener("HybridWebViewMessageReceived", async (e: any) => {
-            console.log(e.detail.message);
             const messageParts = e.detail.message.split('|');
             const messageType = messageParts[0];
             const message = messageParts.length > 1 ? messageParts.slice(1).join('|') : '';

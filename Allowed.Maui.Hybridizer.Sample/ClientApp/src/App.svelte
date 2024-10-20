@@ -7,6 +7,7 @@
     import {onDestroy, onMount} from "svelte";
     import {clientLifetimePlugin} from "./plugins/ClientLifetimePlugin";
     import {type BatteryInfo, batteryPlugin} from "./plugins/BatteryPlugin";
+    import {storagePlugin} from "./plugins/StoragePlugin";
 
     let batteryText: string = 'Loading...';
 
@@ -54,6 +55,11 @@
         bridgeService.register('BatteryInfoChanged', (batteryInfo: BatteryInfo) => {
             setBatteryText(batteryInfo);
         });
+        
+        await storagePlugin.set('TestKey', 'TestValue');
+        console.log((await storagePlugin.get('TestKey'))!.value);
+        await storagePlugin.remove('TestKey');
+        console.log((await storagePlugin.get('TestKey'))!.value);
     });
 
     onDestroy(() => {
