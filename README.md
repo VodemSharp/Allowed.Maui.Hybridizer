@@ -2,6 +2,10 @@
 
 Allowed.Maui.Hybridizer is a library that provides a seamless bridge between JavaScript applications and .NET MAUI, enabling the development of reliable and efficient hybrid mobile applications. By combining the flexibility of web technologies like JavaScript and modern frameworks such as Svelte with the native capabilities of MAUI, developers can build dynamic cross-platform apps with ease.
 
+|| Hybridizer                                                                                                               | Hybridizer.AutoGen                                                                                                                         | Hybridizer.Essentials                                                                                                                         |
+|-|--------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+|*NuGet*| [![NuGet](https://img.shields.io/nuget/v/Allowed.Maui.Hybridizer)](https://www.nuget.org/packages/Allowed.Maui.Hybridizer) | [![NuGet](https://img.shields.io/nuget/v/Allowed.Maui.Hybridizer.AutoGen)](https://www.nuget.org/packages/Allowed.Maui.Hybridizer.AutoGen) | [![NuGet](https://img.shields.io/nuget/v/Allowed.Maui.Hybridizer.Essentials)](https://www.nuget.org/packages/Allowed.Maui.Hybridizer.Essentials) |
+
 > Note: The framework was inspired by Capacitor but tailored to work within the .NET MAUI ecosystem for more efficient hybrid app development.
 
 # Table of Contents
