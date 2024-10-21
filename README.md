@@ -309,7 +309,8 @@ This step sets up the communication channel and should be done once in your Java
 import { bridgeService } from "../hybridizer/BridgeService";
 
 // Initialize the bridge service for communication
-bridgeService.initialize();
+if (!platformService.isWeb())
+    bridgeService.initialize();
 ```
 
 ## Create the JavaScript Interface
