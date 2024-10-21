@@ -8,6 +8,7 @@
     import {clientLifetimePlugin} from "./plugins/ClientLifetimePlugin";
     import {type BatteryInfo, batteryPlugin} from "./plugins/BatteryPlugin";
     import {storagePlugin} from "./plugins/StoragePlugin";
+    import {sampleAlertPlugin} from "./plugins/SampleAlertPlugin";
 
     let batteryText: string = 'Loading...';
 
@@ -91,6 +92,10 @@
         <hr/>
         <button on:click={() => alertPlugin.show('Title', 'Message', 'Accept', 'Cancel', 2)}>
             show alert
+        </button>
+        <hr/>
+        <button on:click={() => sampleAlertPlugin.show()}>
+            show custom alert
         </button>
     </div>
 

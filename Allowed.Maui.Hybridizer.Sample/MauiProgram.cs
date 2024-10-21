@@ -1,6 +1,8 @@
 ﻿using Allowed.Maui.Hybridizer.Essentials;
+using Allowed.Maui.Hybridizer.Sample.Plugins;
 using Allowed.Maui.Hybridizer.Sample.Services;
 using Microsoft.Extensions.Logging;
+using HwvPluginModule = Allowed.Maui.Hybridizer.Essentials.HwvPluginModule;
 
 namespace Allowed.Maui.Hybridizer.Sample;
 
@@ -22,6 +24,8 @@ public static class MauiProgram
         builder.Services.RegisterAlertPlugin();
         builder.Services.RegisterBatteryPlugin();
         builder.Services.RegisterStoragePlugin();
+
+        builder.Services.RegisterCustomAlertPlugin();
 
         builder.Services.RegisterClientLifetimePlugin(scope =>
         {
